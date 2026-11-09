@@ -1,0 +1,50 @@
+<main>
+  <h1 class="page-title">Alpro Pharmacy</h1>
+  <p class="page-description">Data and Management View</p>
+
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th class="column-title">Product Name</th>
+        <th class="column-title">SKU</th>
+        <th class="column-title">Current Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product.sku) {
+        <tr>
+          <td class="stock-cell">{{ product.name }}</td>
+          <td class="stock-cell">{{ product.sku }}</td>
+          <td class="stock-cell">{{ product.quantity }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <form (ngSubmit)="adjustStock()">
+    <label>
+      Product
+      <select name="sku" [(ngModel)]="selectedSku">
+        @for (product of products; track product.sku) {
+          <option [value]="product.sku">{{ product.sku }} — {{ product.name }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Adjustment
+      <input
+        name="adjustment"
+        [(ngModel)]="adjustmentInput"
+        placeholder="+5 or -3"
+        autocomplete="off"
+      />
+    </label>
+
+    <button type="submit">Update stock</button>
+  </form>
+
+  @if (message) {
+    <p class="stock-message" [class.error]="isError">{{ message }}</p>
+  }
+</main>

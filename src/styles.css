@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1c2430;
+}
+
+main {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #d7dee7;
+}
+
+.page-title,
+.page-description,
+.stock-message {
+  margin: 0 0 12px;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.column-title,
+.stock-cell {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #d7dee7;
+}
+
+.column-title {
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 8px;
+}
+
+.error {
+  color: #9d1c2b;
+}
